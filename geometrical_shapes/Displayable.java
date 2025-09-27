@@ -1,4 +1,4 @@
-// package geometrical_shapes;
+package geometrical_shapes;
 
 public interface Displayable {
     void display();
