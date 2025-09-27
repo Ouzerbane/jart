@@ -7,7 +7,11 @@ public class Point implements Drawable, Displayable {
     private int x, y;
     private String color;
 
-    public Point(int x, int y) { this.x = x; this.y = y; this.color = "white"; }
+    public Point(int x, int y) {
+        this.x = x;
+        this.y = y;
+        this.color = "white"; 
+    }
 
     public static Point random(int maxWidth, int maxHeight) {
         Random r = new Random();
