@@ -1,5 +1,6 @@
 package geometrical_shapes;
 import java.awt.*;
+import java.util.Random;
 
 interface Drawable {
     void draw(Displayable displayable);
@@ -26,5 +27,13 @@ interface Drawable {
             x += x_incr;
             y += y_incr;
          }
+    }
+
+    default Color getRandomColor() {
+        Random r = new Random();
+        int red = 50 + r.nextInt(206);
+        int green = 50 + r.nextInt(206);
+        int blue = 50 + r.nextInt(206);
+        return new Color(red, green, blue);
     }
 }

@@ -1,17 +1,6 @@
 import geometrical_shapes.*;
-import java.awt.Color;
-import java.util.Random;
 
 public class Main {
-    
-    private static Color getRandomColor() {
-        Random r = new Random();
-        int red = 50 + r.nextInt(206);
-        int green = 50 + r.nextInt(206);
-        int blue = 50 + r.nextInt(206);
-        return new Color(red, green, blue);
-    }
-
     public static void main(String[] args) {
         Image image = new Image(1000, 1000);
         

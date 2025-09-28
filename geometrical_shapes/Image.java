@@ -5,12 +5,9 @@ import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-
 import javax.imageio.ImageIO;
-import java.awt.Graphics;
 
 public class Image implements Displayable {
-    private int width, height;
     private BufferedImage buffer;
     private Graphics2D g2d;
     
