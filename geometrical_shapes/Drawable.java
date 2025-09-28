@@ -1,6 +1,30 @@
 package geometrical_shapes;
+import java.awt.*;
 
-public interface Drawable {
-    void draw(Image image);  
-    String getColor();
+interface Drawable {
+    void draw(Displayable displayable);
+    Color getColor();
+
+    default void drawLine(Point p0,Point p1,Displayable disp, Color color) {
+        int x0 = p0.x ;
+        int y0 = p0.y ;
+        int x1 = p1.x ;
+        int y1 = p1.y ;
+        // System.out.println("START DRAWING LINE -> ") ;
+
+        int dx = x1 - x0;
+        int dy = y1 - y0;
+        int step = Math.max(Math.abs(dx) , Math.abs(dy));
+
+        float x_incr = dx/ (float) step;
+        float y_incr = dy/(float) step;
+
+        float x = x0;
+        float y = y0;
+        for (int i = 0 ; i <= step; i++) {
+            disp.display(Math.round(x), Math.round(y), color);
+            x += x_incr;
+            y += y_incr;
+         }
+    }
 }

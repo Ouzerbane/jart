@@ -1,6 +1,7 @@
 package geometrical_shapes;
+import java.awt.*;
 
-public interface Displayable {
-    void display();
-    void save(String filename);
+interface Displayable {
+    void display(int x, int y, Color color);
+    void save(String string);
 }

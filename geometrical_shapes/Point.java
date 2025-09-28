@@ -1,16 +1,16 @@
 package geometrical_shapes;
 
-import java.awt.Graphics;
+import java.awt.Color;
 import java.util.Random;
 
-public class Point implements Drawable, Displayable {
-    private int x, y;
-    private String color;
+public class Point implements Drawable {
+    public int x, y;
+    public Color color;
 
     public Point(int x, int y) {
         this.x = x;
         this.y = y;
-        this.color = "white"; 
+        this.color = Color.white; 
     }
 
     public static Point random(int maxWidth, int maxHeight) {
@@ -22,13 +22,10 @@ public class Point implements Drawable, Displayable {
     public int getY() { return y; }
 
     @Override
-    public void draw(Image image) {
-        Graphics g = image.getGraphics2D();
-        g.setColor(java.awt.Color.WHITE);
-        g.fillOval(x, y, 3, 3);
+    public void draw(Displayable disp) {
+        disp.display(x, y, getColor());
     }
 
-    @Override public String getColor() { return color; }
-    @Override public void display() { System.out.println("Point(" + x + "," + y + ") color=" + color); }
-    @Override public void save(String filename) { System.out.println("Saving point to " + filename); }
+    @Override
+    public Color getColor() { return color; }
 }

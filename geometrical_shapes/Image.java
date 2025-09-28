@@ -4,29 +4,41 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.IOException;
+
 import javax.imageio.ImageIO;
 
-public class Image {
-    private int width, height;
+public class Image implements Displayable{
     private BufferedImage buffer;
     private Graphics2D g2d;
 
     public Image(int width, int height) {
-        this.width = width;
-        this.height = height;
         buffer = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
         g2d = buffer.createGraphics();
-        g2d.setColor(Color.BLACK);          // backgrond black
+        g2d.setColor(Color.BLACK);
         g2d.fillRect(0, 0, width, height);
     }
 
-    public int getWidth() { return width; }
-    public int getHeight() { return height; }
+    public int getWidth() { return buffer.getWidth(); }
+    public int getHeight() { return buffer.getHeight(); }
 
-    public Graphics2D getGraphics2D() { return g2d; }
-
-    public void save(String filename) {
-        try { ImageIO.write(buffer, "png", new File(filename)); }
-        catch (Exception e) { e.printStackTrace(); }
+    @Override
+    public void display(int x, int y, Color color) {
+        // System.out.println("test displat func");
+        if (x >= 0 && x < buffer.getWidth() && y >= 0 && y < buffer.getHeight()) {
+            buffer.setRGB(x, y, color.getRGB());
+        }
     }
+
+    @Override
+    public void save(String fname) {
+        try {
+            File file = new File(fname);
+            ImageIO.write(buffer, "png", file);
+            System.out.println("test -> " + fname);
+        } catch (IOException e) {
+            System.err.println("err in saving ->" + e.getMessage());
+        }
+    }
+
 }
