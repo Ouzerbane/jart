@@ -9,7 +9,7 @@ public class Triangle implements Drawable {
         this.p0 = p0;
         this.p1 = p1;
         this.p2 = p2;
-        this.color = getRandomColor();
+        this.color = Color.WHITE;
     }
 
     @Override

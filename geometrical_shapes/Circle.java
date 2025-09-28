@@ -30,13 +30,13 @@ public class Circle implements Drawable, Displayable {
     public void draw(Displayable displayable) {
         if (displayable instanceof Image) {
             Image image = (Image) displayable;
-            // Graphics g = image.getGraphics2D();
-            // g.setColor(color);
+            Graphics g = image.getGraphics2D();
+            g.setColor(color);
             
             int x = center.getX();
             int y = center.getY();
             
-            // g.drawOval(x - radius, y - radius, radius * 2, radius * 2);
+            g.drawOval(x - radius, y - radius, radius * 2, radius * 2);
         }
     }
 

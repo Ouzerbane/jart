@@ -9,7 +9,7 @@ public class Rectangle implements Drawable {
     public Rectangle(Point p1, Point p2) {
         this.p0 = p1;
         this.p1 = p2;
-        this.color = getRandomColor();
+        this.color = Color.WHITE;
     }
 
     @Override

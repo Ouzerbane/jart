@@ -15,8 +15,11 @@ public class Image implements Displayable {
         buffer = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
         g2d = buffer.createGraphics();
         g2d.setColor(Color.BLACK);
-        g2d.setColor(Color.BLACK);
         g2d.fillRect(0, 0, width, height);
+    }
+
+    public Graphics2D getGraphics2D() {
+        return g2d;
     }
 
     public int getWidth() { return buffer.getWidth(); }
@@ -24,7 +27,6 @@ public class Image implements Displayable {
 
     @Override
     public void display(int x, int y, Color color) {
-        // System.out.println("test displat func");
         if (x >= 0 && x < buffer.getWidth() && y >= 0 && y < buffer.getHeight()) {
             buffer.setRGB(x, y, color.getRGB());
         }
@@ -35,10 +37,9 @@ public class Image implements Displayable {
         try {
             File file = new File(fname);
             ImageIO.write(buffer, "png", file);
-            System.out.println("test -> " + fname);
+            System.out.println("Image saved to -> " + fname);
         } catch (IOException e) {
-            System.err.println("err in saving ->" + e.getMessage());
+            System.err.println("Error in saving image ->" + e.getMessage());
         }
     }
-
 }

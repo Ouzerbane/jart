@@ -11,7 +11,6 @@ interface Drawable {
         int y0 = p0.y ;
         int x1 = p1.x ;
         int y1 = p1.y ;
-        // System.out.println("START DRAWING LINE -> ") ;
 
         int dx = x1 - x0;
         int dy = y1 - y0;

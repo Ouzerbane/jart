@@ -1,6 +1,17 @@
 import geometrical_shapes.*;
+import java.awt.Color;
+import java.util.Random;
 
 public class Main {
+
+    private static Color getRandomColor() {
+        Random r = new Random();
+        int red = 50 + r.nextInt(206);
+        int green = 50 + r.nextInt(206);
+        int blue = 50 + r.nextInt(206);
+        return new Color(red, green, blue);
+    }
+
     public static void main(String[] args) {
         Image image = new Image(1000, 1000);
         
@@ -15,11 +26,11 @@ public class Main {
         Point singlePoint = new Point(500, 500);
         singlePoint.draw(image);
 
-        // for (int i = 0; i < 50; i++) {
-        //     Circle circle = Circle.random(image.getWidth(), image.getHeight());
-        //     circle.setColor(getRandomColor());
-        //     circle.draw(image);
-        // }
+        for (int i = 0; i < 100; i++) {
+            Circle circle = Circle.random(image.getWidth(), image.getHeight());
+            circle.setColor(getRandomColor());
+            circle.draw(image);
+        }
         
         image.save("image.png");
     }
