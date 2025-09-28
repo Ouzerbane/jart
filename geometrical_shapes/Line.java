@@ -9,7 +9,7 @@ public class Line implements Drawable {
     public Line(Point p0, Point p1) {
         this.p0 = p0;
         this.p1 = p1;
-        this.color = Color.WHITE; 
+        this.color = getRandomColor(); 
     }
 
     public static Line random(int maxWidth, int maxHeight) {

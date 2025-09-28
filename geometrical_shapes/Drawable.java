@@ -7,10 +7,10 @@ interface Drawable {
     Color getColor();
 
     default void drawLine(Point p0,Point p1,Displayable disp, Color color) {
-        int x0 = p0.x ;
-        int y0 = p0.y ;
-        int x1 = p1.x ;
-        int y1 = p1.y ;
+        int x0 = p0.getX() ;
+        int y0 = p0.getY() ;
+        int x1 = p1.getX() ;
+        int y1 = p1.getY() ;
 
         int dx = x1 - x0;
         int dy = y1 - y0;

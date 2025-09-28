@@ -9,15 +9,15 @@ public class Rectangle implements Drawable {
     public Rectangle(Point p1, Point p2) {
         this.p0 = p1;
         this.p1 = p2;
-        this.color = Color.WHITE;
+        this.color = getRandomColor();
     }
 
     @Override
     public void draw(Displayable disp) {
-        int x0 = p0.x;
-        int y0 = p0.y;
-        int x1 = p1.x;
-        int y1 = p1.y;
+        int x0 = p0.getX();
+        int y0 = p0.getY();
+        int x1 = p1.getX();
+        int y1 = p1.getY();
         Point top_right = new Point(x1, y0);
         Point bottom_left = new Point(x0, y1);
 

@@ -4,13 +4,13 @@ import java.awt.Color;
 import java.util.Random;
 
 public class Point implements Drawable {
-    public int x, y;
-    public Color color;
+    private int x, y;
+    private Color color;
 
     public Point(int x, int y) {
         this.x = x;
         this.y = y;
-        this.color = Color.white; 
+        this.color = getRandomColor(); 
     }
 
     public static Point random(int maxWidth, int maxHeight) {
@@ -24,7 +24,7 @@ public class Point implements Drawable {
     
     @Override
     public void draw(Displayable disp) {
-        System.out.println("test draw func");
+        // System.out.println("test draw func");
         disp.display(x, y, getColor());
     }
 
