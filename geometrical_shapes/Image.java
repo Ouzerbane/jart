@@ -7,14 +7,17 @@ import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
+import java.awt.Graphics;
 
-public class Image implements Displayable{
+public class Image implements Displayable {
+    private int width, height;
     private BufferedImage buffer;
     private Graphics2D g2d;
-
+    
     public Image(int width, int height) {
         buffer = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
         g2d = buffer.createGraphics();
+        g2d.setColor(Color.BLACK);
         g2d.setColor(Color.BLACK);
         g2d.fillRect(0, 0, width, height);
     }

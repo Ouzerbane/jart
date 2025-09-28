@@ -1,49 +1,54 @@
-// package geometrical_shapes;
+package geometrical_shapes;
 
-// import java.awt.Graphics;
-// import java.util.Random;
+import java.awt.Graphics;
+import java.awt.Color;
+import java.util.Random;
 
-// public class Circle implements Drawable, Displayable {
-//     private int x, y, radius;
-//     private String color;
+public class Circle implements Drawable, Displayable {
+    private Point center;
+    private int radius;
+    private Color color;
 
-//     public Circle(int x, int y, int radius) {
-//         this.x = x;
-//         this.y = y;
-//         this.radius = radius;
-//         this.color = "white";
-//     }
+    public Circle(Point center, int radius) {
+        this.center = center;
+        this.radius = radius;
+        this.color = Color.WHITE;
+    }
 
-//     // Random circle
-//     public static Circle random(int maxWidth, int maxHeight) {
-//         Random r = new Random();
-//         int x = r.nextInt(maxWidth);
-//         int y = r.nextInt(maxHeight);
-//         int radius = 5 + r.nextInt(50); // radius between 5 and 55 pixels
-//         return new Circle(x, y, radius);
-//     }
+    public static Circle random(int maxWidth, int maxHeight) {
+        Random r = new Random();
+        Point randomCenter = Point.random(maxWidth, maxHeight);
+        int randomRadius = 5 + r.nextInt(100); 
+        return new Circle(randomCenter, randomRadius);
+    }
 
-//     public int getX() { return x; }
-//     public int getY() { return y; }
-//     public int getRadius() { return radius; }
+    public Point getCenter() { return center; }
+    public int getRadius() { return radius; }
+    public void setColor(Color color) { this.color = color; } 
 
-//     @Override
-//     public void draw(Image image) {
-//         Graphics g = image.getGraphics2D();
-//         g.setColor(java.awt.Color.WHITE);
-//         g.fillOval(x - radius, y - radius, radius * 2, radius * 2); // circle centered at (x,y)
-//     }
+    @Override
+    public void draw(Displayable displayable) {
+        if (displayable instanceof Image) {
+            Image image = (Image) displayable;
+            // Graphics g = image.getGraphics2D();
+            // g.setColor(color);
+            
+            int x = center.getX();
+            int y = center.getY();
+            
+            // g.drawOval(x - radius, y - radius, radius * 2, radius * 2);
+        }
+    }
 
-//     @Override
-//     public String getColor() { return color; }
+    @Override public Color getColor() { return color; }
 
-//     @Override
-//     public void display() {
-//         System.out.println("Circle: center=(" + x + "," + y + "), radius=" + radius + " color=" + color);
-//     }
-
-//     @Override
-//     public void save(String filename) {
-//         System.out.println("Saving circle to " + filename);
-//     }
-// }
+    @Override
+    public void display(int x, int y, Color color) {
+        System.out.println("Circle: Center=(" + center.getX() + ", " + center.getY() + "), Radius=" + radius);
+    }
+    
+    @Override
+    public void save(String filename) {
+        System.out.println("Saving Circle data.");
+    }
+}

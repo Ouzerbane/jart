@@ -20,9 +20,11 @@ public class Point implements Drawable {
 
     public int getX() { return x; }
     public int getY() { return y; }
-
+    public void setColor(Color color) { this.color = color; } 
+    
     @Override
     public void draw(Displayable disp) {
+        System.out.println("test draw func");
         disp.display(x, y, getColor());
     }
 
