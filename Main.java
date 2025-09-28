@@ -15,7 +15,7 @@ public class Main {
         Point singlePoint = Point.random(image.getWidth(), image.getHeight());
         singlePoint.draw(image);
 
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 50; i++) {
             Circle circle = Circle.random(image.getWidth(), image.getHeight());
             circle.draw(image);
         }
